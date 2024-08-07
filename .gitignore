@@ -85,7 +85,6 @@ jspm_packages/
 
 # Test
 certs/
-lib/
 AdminUsers.js
 AdminUsers.json
 data.js

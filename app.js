@@ -1,5 +1,5 @@
 
-import  { ENVIROMENT } from './config.js';
+import { ENVIROMENT } from './config.js';
 import dotenv from 'dotenv';
 import express from "express";
 import morgan from "morgan";
@@ -15,12 +15,12 @@ import checkinRoute from './routes/check.routes.js';
 
 const app = express();
 
-const httpsOptions = {
-    key: fs.readFileSync('./certs/server.key'),
-    cert: fs.readFileSync('./certs/server.crt')
-}
+const httpsOptions = ENVIROMENT === 'dev' ? {
+    key: fs.readFileSync('./certs/key.pem'),
+    cert: fs.readFileSync('./certs/cert.pem')
+} : {};
 
-const server = ENVIROMENT === 'dev' ?  https.createServer(httpsOptions, app) : http.createServer(app);
+const server = ENVIROMENT === 'dev' ? https.createServer(httpsOptions, app) : http.createServer(app);
 
 // Middlewares
 app.use(morgan('dev'));

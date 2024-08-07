@@ -85,9 +85,7 @@ jspm_packages/
 
 # Test
 certs/
-AdminUsers.js
 AdminUsers.json
-data.js
 data.json
 
 # Snowpack dependency directory (https://snowpack.dev/)

@@ -29,7 +29,7 @@ createUsers();
 
 // cors
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://192.168.100.194:5173'],
+    origin: ['http://localhost:3000', 'https://192.168.100.194:5173', 'https://loreal-passport.onrender.com'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }))

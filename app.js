@@ -16,8 +16,8 @@ import checkinRoute from './routes/check.routes.js';
 const app = express();
 
 const httpsOptions = ENVIROMENT === 'dev' ? {
-    key: fs.readFileSync('./certs/key.pem'),
-    cert: fs.readFileSync('./certs/cert.pem')
+    key: fs.readFileSync('./certs/server.key'),
+    cert: fs.readFileSync('./certs/server.crt')
 } : {};
 
 const server = ENVIROMENT === 'dev' ? https.createServer(httpsOptions, app) : http.createServer(app);
@@ -29,7 +29,7 @@ createUsers();
 
 // cors
 app.use(cors({
-    origin: '*',
+    origin: ['http://localhost:3000', 'https://192.168.100.194:5173'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }))

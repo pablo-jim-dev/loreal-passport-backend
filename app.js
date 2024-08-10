@@ -1,6 +1,5 @@
 
 import { ENVIROMENT } from './config.js';
-import dotenv from 'dotenv';
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
@@ -29,7 +28,7 @@ createUsers();
 
 // cors
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://192.168.100.194:5173', 'https://loreal-passport.onrender.com'],
+    origin: ['https://localhost:3000', 'https://192.168.100.194:5173', 'https://loreal-passport.onrender.com'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }))
